@@ -122,16 +122,22 @@ const SignInComponent = () => {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/student/sign-up">
-                <a>Don't have an account? Sign Up</a>
-              </Link>
+                    <Link href="/student/sign-up">
+          <a>
+            Don't have an account? <span style={{ color: 'blue' }}>Sign Up</span>
+          </a>
+        </Link>
+
             </Grid>
+            
           </Grid>
         </form>
         <Box mt={5}>
           <CopyrightComponent/>
         </Box>
       </Container>
+      
+      
     </div>
 
   );

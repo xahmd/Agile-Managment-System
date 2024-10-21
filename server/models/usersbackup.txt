@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const uuidv1 = require('uuid/v1');
 const crypto = require('crypto');
-const fs = require('fs'); // Node's file system module
-const path = require('path'); // Module to handle file paths
 const {ObjectId} = mongoose.Schema;
-
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -82,62 +79,36 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-// Virtual field for password (it won't be stored in the database)
+
 userSchema.virtual("password")
   .set(function (password) {
     this._password = password;
-
-    // Generate a salt (unique identifier) using uuidv1
+    //generate a timestamp
     this.salt = uuidv1();
 
-    // Hash the password using the salt and store it in hashed_password
     this.hashed_password = this.encryptPassword(password);
   })
   .get(function () {
-    return this._password;
+    return this.password;
   });
 
-// Pre-save middleware to store the email, plain password, and role in a txt file
-userSchema.pre('save', function (next) {
-  const user = this;
 
-  // File path where the data will be stored
-  const filePath = path.join(__dirname, 'user_data.txt');
+//methods
 
-  // Data to write into the file (plain password, email, role)
-  const dataToWrite = `Email: ${user.email}, Password: ${user._password}, Role: ${user.role}\n`;
-
-  // Append the data to the file (will create the file if it doesn't exist)
-  fs.appendFile(filePath, dataToWrite, (err) => {
-    if (err) {
-      console.error("Error writing to file:", err);
-    } else {
-      console.log("User data saved to file successfully.");
-    }
-  });
-
-  next();
-});
-
-// Methods related to password encryption and authentication
 userSchema.methods = {
-  // Authenticate: check if the entered password matches the stored hashed password
   authenticate: function (plainText) {
     return this.encryptPassword(plainText) === this.hashed_password;
   },
-
-  // Hash the password using SHA-1 and the salt
   encryptPassword: function (password) {
-    if (!password) return "";
+    if (!password)
+      return "";
     try {
-      return crypto.createHmac('sha1', this.salt) // Create HMAC with SHA-1 and salt
-        .update(password)                         // Hash the password with the salt
-        .digest('hex');                           // Convert the result to a hex string
+      return crypto.createHmac('sha1', this.salt)
+        .update(password)
+        .digest('hex');
     } catch (err) {
       return "";
     }
   }
 };
-
-// Export the model
 module.exports = mongoose.model('Users', userSchema);

@@ -24,7 +24,7 @@ exports.studentSignup = async (req, res) => {
     const emailData = {
       from: "noreply@node-react.com",
       to: email,
-      subject: "Email Verification Instructions",
+      subject: "FDMS - Email Verification Code",
       text: `Please use the following code for email verification ${emailVerCode}`,
       html: `<p>Please use the following code for email verification</p> <h3>${emailVerCode}</h3>`
     };
