@@ -119,6 +119,7 @@ const Index = () => {
             </div>
 
           </Grid>
+          
 
           <Grid item xs={12} sm={5} className={landingClasses.textContainer} data-aos="fade-left">
             <div className={landingClasses.textRightContainer}>
