@@ -1,3 +1,6 @@
 Email: del@edele.com, Password: asd@asd@123, Role: Student
 Email: del@edele.com, Password: undefined, Role: Student
 Email: del@edele.com, Password: undefined, Role: Student
+Email: df@asd.com, Password: aa@123@123, Role: Student
+Email: asd@delete.com, Password: aa@123@123, Role: Student
+Email: asd@delete.com, Password: undefined, Role: Student
