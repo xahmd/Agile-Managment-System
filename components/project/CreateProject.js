@@ -138,8 +138,9 @@ const CreateProject = () => {
       case 2:
         return (
           <Typography variant='h6'>
-           Please Double Check Your Details
+           Please Double Check Your Details Before Submitting
           </Typography>
+          
         );
       default:
         return 'Unknown step';

@@ -104,7 +104,7 @@ const CreateProjectDetailsComponent = ({data, setData, error, setErrors, value, 
             onChange={handleChange}
           >
             <FormControlLabel value="solo" control={<Radio/>} label="Solo"/>
-            <FormControlLabel value="duo" control={<Radio/>} label="Duo"/>
+            <FormControlLabel value="duo" control={<Radio/>} label="Group"/>
 
           </RadioGroup>
         </FormControl>

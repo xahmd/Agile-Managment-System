@@ -487,7 +487,7 @@ const SupervisorFinalDocumentation = () => {
             acceptedFiles={['application/pdf']}
             filesLimit={1}
             maxFileSize={5000000}
-            dropzoneText='Drag and drop document file here or click'
+            dropzoneText='Drag and drop or upload ur Final submission in pdf format here'
           />
           {fileError && <Typography variant='caption' color='error'>Please Add a File</Typography>}
         </DialogContent>

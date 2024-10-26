@@ -27,7 +27,7 @@ const StudentVisionDocumentListComponent = () => {
         <div className={classes.listHeader}>
           <Link href='/student/project/vision-document/new'>
             <Button variant='outlined' color='primary'>
-              Upload New Document
+              Upload a project proposal
             </Button>
           </Link>
         </div>

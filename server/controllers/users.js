@@ -239,12 +239,12 @@ exports.addMemberToCommittee = async (req, res) => {
     const emailData = {
       from: "noreply@node-react.com",
       to: result.email,
-      subject: `UGPC | Added In ${committeeType} Committee`,
-      text: `Dear Teacher,\nChairman DCS&SE added you in ${committeeType} committee as a ${position} of committee for department ${department}.`,
+      subject: `Update | Added In ${committeeType} Committee`,
+      text: `Dear Lecturer,\n you have been added  in ${committeeType} committee as a ${position} of committee for department ${department}.`,
       html: `
-                <p>Dear Teacher,</p>
-                <p>Chairman DCS&SE added you in UGPC-${committeeType} committee for department ${department}.</p>
-                <p>Your Position in Committee is: ${position}</p>
+                <p>Dear Lecturer,</p>
+                <p>${committeeType} committee for department ${department}.</p>
+                <p>Your Position in is: ${position}</p>
                 </br>
                 <p>Regards</p>
             `
@@ -272,9 +272,9 @@ exports.removeFromCommitteeDepartment = async (req, res) => {
       from: "noreply@node-react.com",
       to: result.email,
       subject: `UGPC | Removed from ${committeeType} Committee's Department ${department}`,
-      text: `Dear Teacher,\nChairman DCS&SE added removed you from UGPC-${committeeType} committee's department ${department}.`,
+      text: `Dear Lecturer,\nChairman DCS&SE added removed you from UGPC-${committeeType} committee's department ${department}.`,
       html: `
-                <p>Dear Teacher,</p>
+                <p>Dear Lecturer,</p>
                 <p>Chairman DCS&SE removed you from UGPC-${committeeType} committee's department ${department}.</p>
                 </br>
                 <p>Regards</p>
@@ -304,9 +304,9 @@ exports.removeFromCommittee = async (req, res) => {
       from: "noreply@node-react.com",
       to: result.email,
       subject: `UGPC | Removed from ${committeeType} Committee`,
-      text: `Dear Teacher,\nChairman DCS&SE added removed you from UGPC-${committeeType} committee.`,
+      text: `Dear Lecturer,\nChairman DCS&SE added removed you from UGPC-${committeeType} committee.`,
       html: `
-                <p>Dear Teacher,</p>
+                <p>Dear Lecturer,</p>
                 <p>Chairman DCS&SE removed you from UGPC-${committeeType} committee.</p>
                 </br>
                 <p>Regards</p>

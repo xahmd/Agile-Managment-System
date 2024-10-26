@@ -47,10 +47,10 @@ const DetailsComponent = ({modules, handleDelete, handleSubmitModule, currentMod
         <form onSubmit={handleSubmitModule}>
           <TextField
             variant='outlined'
-            label='Add Keywords/Modules'
+            label='Add Functions/Modules'
             fullWidth
             name='module'
-            placeholder='Write Your Keywords/Modules/Words Here'
+            placeholder='Write Your Functions/Modules Here'
             required
             value={currentModule}
             onChange={handleModuleChange}
@@ -58,7 +58,7 @@ const DetailsComponent = ({modules, handleDelete, handleSubmitModule, currentMod
             helperText={modulesError.message}
           />
           <span className={classes.addModuleButton}>
-                                    <Button onClick={handleSubmitModule} variant='outlined'
+                                    <Button onClick={handleSubmitModule} variant='contained'
                                             color='primary'>Add</Button>
                                 </span>
         </form>

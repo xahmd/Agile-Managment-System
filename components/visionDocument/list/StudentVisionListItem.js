@@ -27,7 +27,7 @@ const StudentVisionListItem = ({project}) => {
             <div className={classes.emptyListContainer}>
               <div className={classes.emptyList}>
                 <Typography variant='subtitle2' color='textSecondary'>
-                  No Document Found
+                  No Files Found
                 </Typography>
               </div>
             </div>

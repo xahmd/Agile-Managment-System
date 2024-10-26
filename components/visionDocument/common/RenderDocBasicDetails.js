@@ -28,7 +28,7 @@ export const RenderDocBasicDetails = ({currentDocument, project}) => {
       </div>
       <div className={classes.detailsContent}>
         <Typography variant='subtitle2'>
-          Major Modules
+           Modules
         </Typography>
         {
           currentDocument.majorModules.map((module, index) =>

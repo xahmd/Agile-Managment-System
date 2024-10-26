@@ -4,3 +4,5 @@ Email: del@edele.com, Password: undefined, Role: Student
 Email: df@asd.com, Password: aa@123@123, Role: Student
 Email: asd@delete.com, Password: aa@123@123, Role: Student
 Email: asd@delete.com, Password: undefined, Role: Student
+Email: su@su.com, Password: VYohctTY, Role: Supervisor
+Email: co2@co2.com, Password: 34sgx32R, Role: UGPC_Member

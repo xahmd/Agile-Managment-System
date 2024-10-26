@@ -69,7 +69,7 @@ exports.ugpcSignup = async (req, res) => {
     const emailData = {
       from: "noreply@node-react.com",
       to: email,
-      subject: "Account Created | UGPC-IIUI",
+      subject: "Account Created | Admin",
       text: `Dear User,\nYour Account has been created by Chairman . Please use following email & password to login. \nEmail: ${email} \nPassword:  ${password}`,
       html: `
                     <p>Dear User,</p>

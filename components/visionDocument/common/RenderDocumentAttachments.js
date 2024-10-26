@@ -18,7 +18,7 @@ export const RenderDocumentAttachments = ({documents}) => {
       </Typography>
       <div>
         <Container>
-          <Typography noWrap>Vision Docs</Typography>
+          <Typography noWrap>Attachments</Typography>
           <div className={classes.documentsList}>
             {
               documents.map((document) => {

@@ -64,8 +64,8 @@ const Documentation = () => {
               textColor="primary"
               variant="fullWidth"
             >
-              <Tab label="Vision Documents" {...a11yProps(0)} />
-              <Tab label="Final Documentation" {...a11yProps(1)} />
+              <Tab label="Submitted Documents" {...a11yProps(0)} />
+              <Tab label="Final Documents" {...a11yProps(1)} />
             </Tabs>
 
             <SwipeableViews

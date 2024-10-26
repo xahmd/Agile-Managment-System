@@ -78,7 +78,7 @@ const CoordinatorLayout = ({children}) => {
           <ListItemIcon>
             <Assignment className={classes.iconColor}/>
           </ListItemIcon>
-          <ListItemText primary={"Vision Documents"} style={{whiteSpace: 'normal'}}/>
+          <ListItemText primary={"Documents"} style={{whiteSpace: 'normal'}}/>
         </DrawerLink>
         <DrawerLink href={'/committee/defence/coordinator/presentations'}>
           <ListItemIcon>

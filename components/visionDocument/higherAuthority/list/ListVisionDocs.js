@@ -70,7 +70,7 @@ const ListVisionDocs = ({docs}) => {
           <Assignment className={classes.headerIcon}/>
         </div>
         <div className={classes.topTitle}>
-          <Typography variant='h5'>Vision Documents</Typography>
+          <Typography variant='h5'>Submitted Documents</Typography>
         </div>
 
       </div>

@@ -86,7 +86,7 @@ const CoordinatorDashboard = ({projects, students, visionDocs}) => {
                   </div>
                 </div>
                 <div className={progressClasses.containerContent}>
-                  <Typography variant='body1' color='textSecondary'>Vision Documents</Typography>
+                  <Typography variant='body1' color='textSecondary'>Attachments/Documents</Typography>
                   {
                     !visionDocs.isLoading &&
                     <Typography variant='h5'

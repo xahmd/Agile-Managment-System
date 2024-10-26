@@ -95,7 +95,7 @@ const StudentPanelLayout = ({children}) => {
           <ListItemIcon>
             <Assignment className={classes.iconColor}/>
           </ListItemIcon>
-          <ListItemText primary={"Documentation"}/>
+          <ListItemText primary={"Files"}/>
         </DrawerLink>
         <DrawerLink href={'/student/project/backlog'}>
           <ListItemIcon>

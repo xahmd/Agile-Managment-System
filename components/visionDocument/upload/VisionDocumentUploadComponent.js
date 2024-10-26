@@ -100,7 +100,7 @@ class VisionDocumentUploadComponent extends Component {
     this.setState({
       modulesError: {
         show: true,
-        message: 'Please Enter Your Major Modules'
+        message: 'Please Enter Your at least 1 Module'
       }
     })
   };
@@ -250,7 +250,7 @@ class VisionDocumentUploadComponent extends Component {
                 acceptedFiles={['application/pdf']}
                 filesLimit={1}
                 maxFileSize={10000000}
-                dropzoneText='Drag and drop document file here or click'
+                dropzoneText='Drag and drop or upload ur proposal in pdf format here'
               />
               {this.state.fileError.show &&
               <Typography variant='caption' color='error'>{this.state.fileError.message}</Typography>}
@@ -268,7 +268,7 @@ class VisionDocumentUploadComponent extends Component {
     return (
       <div className={classes.root}>
         {this.state.loading && <LinearProgress color='secondary'/>}
-        <SuccessSnackBar open={this.state.success} message='Vision Document Uploaded' handleClose={this.handleSuccess}/>
+        <SuccessSnackBar open={this.state.success} message='File Uploaded' handleClose={this.handleSuccess}/>
         <StepperComponent
           steps={['Overview', 'Details', 'Upload']}
           handleBack={this.handleBack}
