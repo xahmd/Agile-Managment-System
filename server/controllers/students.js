@@ -13,7 +13,7 @@ exports.changeEligibility = (req, res) => {
           process.env.CLIENT_URL
         }/student/project/create`
         :
-        'Dear Student,/n You are NOT ELIGIBLE for FYP YET. For further details please visit program office';
+        'Dear Student,/n You are NOT ELIGIBLE for FYP YET. For further details please Contact PSM coordinator';
       const emailHtml = req.body.status === 'Eligible' ?
         `
                     <p>Dear Student,</p>
@@ -22,13 +22,13 @@ exports.changeEligibility = (req, res) => {
                 ` :
         `
                 <p>Dear Student,</p>
-                    <p>You are <b>NOT ELIGIBLE</b> for FYP YET. For further details please visit program office</p>
+                    <p>You are <b>NOT ELIGIBLE</b> for FYP YET. For further details please Contact PSM coordinator</p>
                 `;
 
       const emailData = {
         from: "noreply@node-react.com",
         to: user.email,
-        subject: "Eligibility Status Update | Program Office",
+        subject: "Eligibility | Account Status Update",
         text: emailText,
         html: emailHtml
       };

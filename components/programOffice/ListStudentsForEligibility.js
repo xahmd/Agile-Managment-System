@@ -2,12 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {
   Container,
   Divider,
-  FormControl, InputAdornment,
-  InputLabel, LinearProgress,
+  FormControl,
+  InputAdornment,
+  InputLabel,
+  LinearProgress,
   MenuItem,
   OutlinedInput,
   Select,
-  TextField, Typography,
+  TextField,
+  Typography,
   Table,
   TableBody,
   TableCell,
@@ -16,14 +19,20 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  Dialog, Tooltip, IconButton, Menu, ListItemIcon
+  Dialog,
+  Tooltip,
+  IconButton,
+  Menu,
+  ListItemIcon,
+  Chip,
 } from "@material-ui/core";
 import {
   AccountBox,
-  CheckCircleOutlined, Close,
+  CheckCircleOutlined,
+  Close,
   MoreVertOutlined,
-  Search, NotInterested,
-
+  Search,
+  NotInterested,
 } from "@material-ui/icons";
 
 import Button from "@material-ui/core/Button";
@@ -41,7 +50,7 @@ const ListStudentsForEligibility = ({studentsList}) => {
   const classes = useListContainerStyles();
   const emptyStyles = useListItemStyles();
   const tableClasses = useTableStyles();
-  const dialogClasses = useDialogStyles()
+  const dialogClasses = useDialogStyles();
   const [studentList, setStudentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [dialogLoading, setDialogLoading] = useState(false);
@@ -58,54 +67,42 @@ const ListStudentsForEligibility = ({studentsList}) => {
       message: ''
     }
   });
+
   useEffect(() => {
     setStudentList(studentsList);
     setStudents(studentsList);
     setFilter(studentsList);
-    setLoading(false)
-  }, []);
+    setLoading(false);
+  }, [studentsList]);
+
   const handleChange = (event) => {
     setStatus(event.target.value);
-    switch (event.target.value) {
-      case 'All':
-        setStudents(studentList);
-        setFilter(studentList);
-        break;
-      case 'Pending':
-        const data = studentList;
-        const filter1 = data.filter(student => student.student_details.isEligible === 'Pending');
-        setStudents(filter1);
-        setFilter(filter1);
-
-        break;
-      case 'Not Eligible':
-        const dataFilter = studentList;
-        const filter2 = dataFilter.filter(student => student.student_details.isEligible === 'Not Eligible');
-        setStudents(filter2);
-        setFilter(filter2);
-        break;
+    let filteredData = studentList;
+    if (event.target.value === 'Pending') {
+      filteredData = studentList.filter(student => student.student_details.isEligible === 'Pending');
+    } else if (event.target.value === 'Not Eligible') {
+      filteredData = studentList.filter(student => student.student_details.isEligible === 'Not Eligible');
     }
+    setStudents(filteredData);
+    setFilter(filteredData);
   };
-  const handleChangeSearch = e => {
-    const data = students;
-    setFilter(e.target.value !== '' ? data.filter(student => student.student_details.regNo.toLowerCase().includes(e.target.value.toLowerCase())) : students)
+
+  const handleChangeSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+    setFilter(value ? students.filter(student => student.student_details.regNo.toLowerCase().includes(value)) : students);
   };
+
   const handleConfirm = (status) => {
     setChangedStatus({...changedStatus, status});
     setDialogOpen(true);
   };
+
   const handleChangeStatus = () => {
     setDialogLoading(true);
     changeEligibility(changedStatus.status, changedStatus.student._id)
       .then(response => {
         if (response.error) {
-          setRes({
-            ...res,
-            error: {
-              open: true,
-              message: response.error
-            }
-          });
+          setRes({...res, error: {open: true, message: response.error}});
           setDialogOpen(false);
           setDialogLoading(false);
           return;
@@ -116,21 +113,39 @@ const ListStudentsForEligibility = ({studentsList}) => {
           setFilter(result);
           setDialogOpen(false);
           setDialogLoading(false);
-          setRes({
-            ...res,
-            success: true
-          });
-        })
-      })
-
+          setRes({...res, success: true});
+        });
+      });
   };
+
   const handleClose = () => {
     setDialogOpen(false);
   };
+
   const handleClickActionMenu = (student, event) => {
     setChangedStatus({...changedStatus, student});
     setAnchorEl(event.currentTarget);
   };
+
+  // Color-coded Chip for Eligibility Status
+  const getEligibilityChip = (status) => {
+    let chipStyle = {};
+    switch (status) {
+      case 'Eligible':
+        chipStyle = { backgroundColor: 'green', color: 'white' };
+        break;
+      case 'Pending':
+        chipStyle = { backgroundColor: '#ffcc00', color: 'black' };
+        break;
+      case 'Not Eligible':
+        chipStyle = { backgroundColor: '#cc3300', color: 'white' };
+        break;
+      default:
+        chipStyle = { backgroundColor: 'grey', color: 'white' };
+    }
+    return <Chip label={status} style={chipStyle} />;
+  };
+
   return (
     <div>
       <SuccessSnackBar open={res.success} message={'Success'} handleClose={() => setRes({...res, success: false})}/>
@@ -139,171 +154,125 @@ const ListStudentsForEligibility = ({studentsList}) => {
       <Container>
         <div className={classes.listContainer}>
           <div className={classes.top}>
-            <div className={classes.topIconBox}>
-              <AccountBox className={classes.headerIcon}/>
-            </div>
-            <div className={classes.topTitle}>
-              <Typography variant='h5'>Students</Typography>
-            </div>
-
+            <AccountBox className={classes.headerIcon}/>
+            <Typography variant="h5" className={classes.topTitle}>Students</Typography>
           </div>
-
           <div className={classes.listHeader}>
-            <FormControl variant="outlined" margin='dense' className={classes.formControl}>
-              <InputLabel htmlFor="status">
-                Status
-              </InputLabel>
+            <FormControl variant="outlined" margin="dense" className={classes.formControl}>
+              <InputLabel htmlFor="status">Status</InputLabel>
               <Select
                 value={status}
                 onChange={handleChange}
                 input={<OutlinedInput labelWidth={47} name="status" id="status"/>}
               >
-                <MenuItem value='All'>All</MenuItem>
-                <MenuItem value='Pending'>Pending</MenuItem>
-                <MenuItem value='Not Eligible'>Not Eligible</MenuItem>
+                <MenuItem value="All">All</MenuItem>
+                <MenuItem value="Pending">Pending</MenuItem>
+                <MenuItem value="Not Eligible">Not Eligible</MenuItem>
               </Select>
             </FormControl>
             <TextField
               variant="outlined"
               label="Search"
-              name='search'
-              margin='dense'
-              placeholder='Write Registration No'
+              name="search"
+              margin="dense"
+              placeholder="Write Registration No"
               onChange={handleChangeSearch}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
                     <Search/>
-
                   </InputAdornment>
                 ),
               }}
             />
           </div>
           <Divider/>
-          {
-            loading ? <CircularLoading/> :
-              <div className={classes.listItemContainer}>
-                <div className={tableClasses.tableWrapper}>
-                  <Table>
-                    <TableHead>
+          {loading ? (
+            <CircularLoading/>
+          ) : (
+            <div className={classes.listItemContainer}>
+              <div className={tableClasses.tableWrapper}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="left"><strong>Student Name</strong></TableCell>
+                      <TableCell align="left"><strong>Registration No</strong></TableCell>
+                      <TableCell align="left"><strong>Department</strong></TableCell>
+                      <TableCell align="left"><strong>Eligibility Status</strong></TableCell>
+                      <TableCell align="left"><strong>Actions</strong></TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {filter.length === 0 ? (
                       <TableRow>
-                        <TableCell align="left">Student Name</TableCell>
-                        <TableCell align="left">Registration No</TableCell>
-                        <TableCell align="left">Department</TableCell>
-                        <TableCell align="left">Eligibility Status</TableCell>
-                        <TableCell align="left">Actions</TableCell>
+                        <TableCell colSpan={5} align="center" className={emptyStyles.emptyListContainer}>
+                          No Students Found
+                        </TableCell>
                       </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {
-                        filter.length === 0 ?
-                          <TableRow>
-                            <TableCell colSpan={5}>
-                              <div className={emptyStyles.emptyListContainer}>
-                                <div className={emptyStyles.emptyList}>
-                                  No Students Found
-                                </div>
-                              </div>
-                            </TableCell>
-                          </TableRow>
-                          :
-                          filter.map(student => (
-                            <TableRow key={student._id} className={tableClasses.tableRow}>
-                              <TableCell align="left">
-                                {student.name}
-                              </TableCell>
-                              <TableCell align="left">{student.student_details.regNo}</TableCell>
-                              <TableCell align="left">{student.department}</TableCell>
-                              <TableCell align="left">{student.student_details.isEligible}</TableCell>
-                              <TableCell align="left">
-                                <Tooltip title='Click for Actions' placement='top'>
-                                  <IconButton size='small' onClick={(event) => handleClickActionMenu(student, event)}>
-                                    <MoreVertOutlined/>
-                                  </IconButton>
-                                </Tooltip>
-
-                                <Menu
-                                  id="simple-menu"
-                                  anchorEl={anchorEl}
-                                  keepMounted
-                                  open={Boolean(anchorEl)}
-                                  onClose={() => setAnchorEl(null)}
-                                >
-                                  {
-                                    changedStatus.student && changedStatus.student.student_details.isEligible === 'Not Eligible' ?
-                                      <MenuItem onClick={() => handleConfirm('Eligible')}>
-                                        <ListItemIcon>
-                                          <CheckCircleOutlined/>
-                                        </ListItemIcon>
-                                        <Typography variant="inherit" noWrap>
-                                          Make Eligible
-                                        </Typography>
-                                      </MenuItem>
-                                      :
-                                      <div>
-                                        <MenuItem onClick={() => handleConfirm('Eligible')}>
-                                          <ListItemIcon>
-                                            <CheckCircleOutlined/>
-                                          </ListItemIcon>
-                                          <Typography variant="inherit" noWrap>
-                                            Eligible
-                                          </Typography>
-                                        </MenuItem>
-                                        <MenuItem onClick={() => handleConfirm('Not Eligible')}>
-                                          <ListItemIcon>
-                                            <NotInterested/>
-                                          </ListItemIcon>
-                                          <Typography variant="inherit" noWrap>
-                                            Not Eligible
-                                          </Typography>
-                                        </MenuItem>
-                                      </div>
-                                  }
-                                  <MenuItem onClick={() => setAnchorEl(null)}>
-                                    <ListItemIcon>
-                                      <Close/>
-                                    </ListItemIcon>
-                                    <Typography variant="inherit" noWrap>
-                                      Cancel
-                                    </Typography>
+                    ) : (
+                      filter.map(student => (
+                        <TableRow key={student._id} className={tableClasses.tableRow}>
+                          <TableCell align="left">{student.name}</TableCell>
+                          <TableCell align="left">{student.student_details.regNo}</TableCell>
+                          <TableCell align="left">{student.department}</TableCell>
+                          <TableCell align="left">{getEligibilityChip(student.student_details.isEligible)}</TableCell>
+                          <TableCell align="left">
+                            <Tooltip title="Click for Actions" placement="top">
+                              <IconButton size="small" onClick={(event) => handleClickActionMenu(student, event)}>
+                                <MoreVertOutlined/>
+                              </IconButton>
+                            </Tooltip>
+                            <Menu
+                              id="simple-menu"
+                              anchorEl={anchorEl}
+                              keepMounted
+                              open={Boolean(anchorEl)}
+                              onClose={() => setAnchorEl(null)}
+                            >
+                              {changedStatus.student && changedStatus.student.student_details.isEligible === 'Not Eligible' ? (
+                                <MenuItem onClick={() => handleConfirm('Eligible')}>
+                                  <ListItemIcon><CheckCircleOutlined/></ListItemIcon>
+                                  Make Eligible
+                                </MenuItem>
+                              ) : (
+                                <>
+                                  <MenuItem onClick={() => handleConfirm('Eligible')}>
+                                    <ListItemIcon><CheckCircleOutlined/></ListItemIcon>
+                                    Eligible
                                   </MenuItem>
-
-                                </Menu>
-                              </TableCell>
-                            </TableRow>
-                          ))
-                      }
-                    </TableBody>
-                  </Table>
-                </div>
+                                  <MenuItem onClick={() => handleConfirm('Not Eligible')}>
+                                    <ListItemIcon><NotInterested/></ListItemIcon>
+                                    Not Eligible
+                                  </MenuItem>
+                                </>
+                              )}
+                              <MenuItem onClick={() => setAnchorEl(null)}>
+                                <ListItemIcon><Close/></ListItemIcon>
+                                Cancel
+                              </MenuItem>
+                            </Menu>
+                          </TableCell>
+                        </TableRow>
+                      ))
+                    )}
+                  </TableBody>
+                </Table>
               </div>
-          }
-
+            </div>
+          )}
         </div>
-        <Dialog
-          open={dialogOpen}
-          onClose={handleClose}
-          classes={{paper: dialogClasses.root}}
-        >
+        <Dialog open={dialogOpen} onClose={handleClose} classes={{paper: dialogClasses.root}}>
           {dialogLoading && <LinearProgress/>}
-          <DialogTitleComponent title='Confirm' handleClose={handleClose}/>
+          <DialogTitleComponent title="Confirm" handleClose={handleClose}/>
           <DialogContent>
-            <DialogContentText>
-              Are you sure, you want to perform this action?
-            </DialogContentText>
+            <DialogContentText>Are you sure, you want to perform this action?</DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button onClick={handleChangeStatus} color="primary">
-              Confirm
-            </Button>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleChangeStatus} color="primary">Confirm</Button>
           </DialogActions>
         </Dialog>
       </Container>
-
     </div>
   );
 };
