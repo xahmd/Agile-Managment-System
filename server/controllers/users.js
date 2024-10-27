@@ -271,11 +271,11 @@ exports.removeFromCommitteeDepartment = async (req, res) => {
     const emailData = {
       from: "noreply@node-react.com",
       to: result.email,
-      subject: `UGPC | Removed from ${committeeType} Committee's Department ${department}`,
+      subject: `Update | Removed from ${committeeType} Committee's Department ${department}`,
       text: `Dear Lecturer,\nChairman DCS&SE added removed you from UGPC-${committeeType} committee's department ${department}.`,
       html: `
                 <p>Dear Lecturer,</p>
-                <p>Chairman DCS&SE removed you from UGPC-${committeeType} committee's department ${department}.</p>
+                <p>${committeeType} committee's department ${department}.</p>
                 </br>
                 <p>Regards</p>
             `
@@ -303,11 +303,11 @@ exports.removeFromCommittee = async (req, res) => {
     const emailData = {
       from: "noreply@node-react.com",
       to: result.email,
-      subject: `UGPC | Removed from ${committeeType} Committee`,
+      subject: `Update | Removed from ${committeeType} Committee`,
       text: `Dear Lecturer,\nChairman DCS&SE added removed you from UGPC-${committeeType} committee.`,
       html: `
                 <p>Dear Lecturer,</p>
-                <p>Chairman DCS&SE removed you from UGPC-${committeeType} committee.</p>
+                <p>${committeeType} committee.</p>
                 </br>
                 <p>Regards</p>
             `

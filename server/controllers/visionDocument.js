@@ -202,16 +202,14 @@ exports.scheduleVisionDefence = async (req, res) => {
     const emailData = {
       from: "noreply@node-react.com",
       to: emails,
-      subject: "Proposal Defence Schedule",
-      text: `Dear Student,\nYour Proposal Defence is scheduled on ${moment(date).format('LLL')}.\nYou need to upload Your presentation in ppt/pptx before ${moment(date).format('LLL')}.\nNote:Please be on time otherwise you will be placed at the end of the list`,
+      subject: "SV Ttile Meeting Schedule",
+      text: `Dear Student,\nYour Proposal meeting is scheduled on ${moment(date).format('LLL')}`,
       html: `
                 <p>Dear Student,</p>
-                <p>Your Proposal Defence is Scheduled, please see details section for data and venue .</p>
-                <p>You need to upload Your presentation in ppt/pptx before ${moment(date).format('LLL')}</p>
                 <p><b>Details:</b></p>
                 <p>Venue: ${venue}</p>
                 <p>On: ${moment(date).format('LLL')}</p>
-                <p><b>Note:</b>Please be on time otherwise you will be placed at the end of the list</p>
+                <p><b>Note:</b>Please be on time </p>
                 </br>
                 <p>Regards</p>
             `

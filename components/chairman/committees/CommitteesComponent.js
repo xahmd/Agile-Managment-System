@@ -69,7 +69,7 @@ const CommitteesComponent = () => {
           textColor="primary"
           variant="scrollable"
         >
-          <Tab label="Defence" {...a11yProps(0)} />
+          <Tab label="Manager" {...a11yProps(0)} />
           <Tab label="Evaluation" {...a11yProps(1)} />
         </Tabs>
 
