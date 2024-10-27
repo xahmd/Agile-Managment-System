@@ -249,7 +249,7 @@ const ListVisionDocsForPresentation = ({docs}) => {
                             >
                               <div className={presentationClasses.emptySchedule}>
                                 <Typography variant='subtitle2' color='textSecondary'>
-                                  Drag and drop Projects from list given below
+                                  Drag and drop to assign
                                 </Typography>
                               </div>
                               {provided.placeholder}
@@ -265,7 +265,7 @@ const ListVisionDocsForPresentation = ({docs}) => {
                               >
                                 <div className={presentationClasses.emptySchedule}>
                                   <Typography variant='subtitle2' color='textSecondary'>
-                                    No Projects to Schedule Presentation
+                                    No Projects 
                                   </Typography>
                                 </div>
                                 {provided.placeholder}

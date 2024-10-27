@@ -1,5 +1,5 @@
 export const getClassRooms = () => {
-  return ['Room 21', 'Room 25', 'Room 26', 'Room 27']
+  return ['Room 1', 'Room 2', 'Room 3', 'Room 4']
 };
 export const getLabs = () => {
   return ['Lab 1', 'Lab 2', 'Lab 3', 'Lab 4']
