@@ -13,7 +13,7 @@ const StudentDefenceMeetingComponent = ({docs}) => {
         <Table size='small'>
           <TableHead>
             <TableRow>
-              <TableCell align="left">SrNo.</TableCell>
+              <TableCell align="left">No.</TableCell>
               <TableCell align="left">Title</TableCell>
               <TableCell align="left">Date</TableCell>
               <TableCell align="left">Venue</TableCell>

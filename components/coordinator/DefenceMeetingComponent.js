@@ -98,7 +98,7 @@ const DefenceMeetingComponent = () => {
             <div className={containerClasses.listHeader}>
               <FormControl variant="outlined" margin='dense' className={containerClasses.formControl}>
                 <InputLabel htmlFor="status">
-                  Meeting Date
+                  Scheduled Date
                 </InputLabel>
                 <Select
                   value={selectedDate}

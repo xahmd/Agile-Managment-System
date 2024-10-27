@@ -94,7 +94,7 @@ const StudentFinalDocumentationComponent = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="left">SrNo.</TableCell>
+              <TableCell align="left">No.</TableCell>
               <TableCell align="left">File Name</TableCell>
               <TableCell align="left">Status</TableCell>
               <TableCell align="left">File</TableCell>

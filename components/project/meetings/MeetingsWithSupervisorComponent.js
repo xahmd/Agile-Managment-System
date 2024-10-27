@@ -126,7 +126,7 @@ const MeetingsWithSupervisorComponent = ({meetings, role}) => {
         <Table size='small'>
           <TableHead>
             <TableRow>
-              <TableCell align="left">SrNo.</TableCell>
+              <TableCell align="left">No.</TableCell>
               <TableCell align="left">Purpose</TableCell>
               <TableCell align="left">Date</TableCell>
               <TableCell align="left">Attended</TableCell>

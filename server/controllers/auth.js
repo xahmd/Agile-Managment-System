@@ -256,10 +256,10 @@ exports.forgotPassword = (req, res) => {
       subject: "Password Reset Instructions",
       text: `Please use the following link to reset your password: ${
         process.env.CLIENT_URL
-      }reset-password/${token}`,
+      }/reset-password/${token}`,
       html: `<p>Please use the following link to reset your password:</p> <p>${
         process.env.CLIENT_URL
-      }reset-password/${token}</p>`
+      }/reset-password/${token}</p>`
     };
 
     return user.updateOne({resetPasswordLink: token}, (err, success) => {
