@@ -209,7 +209,7 @@ const ListVisionDocsForPresentation = ({docs}) => {
                     <Typography variant='subtitle1'
                                 className={presentationClasses.presentationTitle}>{column.title}</Typography>
                     {
-                      column.title === 'Schedule Presentations' &&
+                      column.title === 'assign' &&
                       <>
                         <Button
                           variant='outlined'
@@ -229,7 +229,7 @@ const ListVisionDocsForPresentation = ({docs}) => {
                           disabled={disabledButton}
                           onClick={() => setDialogOpen(true)}
                         >
-                          Schedule Now
+                          Assign Now
                         </Button>
                       </>
                     }
@@ -238,7 +238,7 @@ const ListVisionDocsForPresentation = ({docs}) => {
                   <Droppable droppableId={column.id}>
                     {
                       (provided, snapShot) => {
-                        if (column.title === 'Schedule Presentations' && column.projectsIds.length === 0) {
+                        if (column.title === 'assign' && column.projectsIds.length === 0) {
 
                           return (
                             <div
@@ -345,7 +345,7 @@ const ListVisionDocsForPresentation = ({docs}) => {
         {
           dialogLoading && <LinearProgress color='secondary'/>
         }
-        <DialogTitle id="title">Select Venue & Data</DialogTitle>
+        <DialogTitle id="title">Select Venue & Date</DialogTitle>
         <DialogContent>
           <SchedulingDialogContent
             venue={venue}

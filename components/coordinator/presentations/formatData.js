@@ -16,12 +16,12 @@ export const formatData = docs => {
     columns: {
       'column-1': {
         'id': 'column-1',
-        title: 'Schedule Presentations',
+        title: 'assign',
         projectsIds: []
       },
       'column-2': {
         'id': 'column-2',
-        title: 'Projects To Schedule',
+        title: 'To assign',
         projectsIds: ids
       },
     },

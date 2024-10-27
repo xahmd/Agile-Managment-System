@@ -84,7 +84,7 @@ const CoordinatorLayout = ({children}) => {
           <ListItemIcon>
             <Schedule className={classes.iconColor}/>
           </ListItemIcon>
-          <ListItemText primary={"Schedules"} style={{whiteSpace: 'normal'}}/>
+          <ListItemText primary={"Management"} style={{whiteSpace: 'normal'}}/>
         </DrawerLink>
         <DrawerLink href={'/committee/defence/coordinator/meetings'}>
           <ListItemIcon>

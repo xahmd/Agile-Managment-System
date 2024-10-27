@@ -74,7 +74,7 @@ const SupervisorLayout = ({children}) => {
           <ListItemIcon>
             <Assignment className={classes.iconColor}/>
           </ListItemIcon>
-          <ListItemText primary={"Documentation"} style={{whiteSpace: 'normal'}}/>
+          <ListItemText primary={"Files"} style={{whiteSpace: 'normal'}}/>
         </DrawerLink>
       </List>
     </Fragment>
