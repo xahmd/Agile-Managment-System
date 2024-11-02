@@ -1,5 +1,5 @@
 {
-  "name": "ugpc-server",
+  "name": "fyp-app",
   "version": "1.0.0",
   "description": "Final Year Project",
   "main": "server/app.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafaewaqarqazi/ugpc-server.git"
+    "url": "git+https://github.com/xahmd"
   },
-  "author": "Rafae Waqar Qazi",
+  "author": "Ahmad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rafaewaqarqazi/ugpc-server/issues"
+    "url": "https://github.com/xahmd/fyp-server/issues"
   },
-  "homepage": "https://github.com/rafaewaqarqazi/ugpc-server#readme",
+  "homepage": "#",
   "dependencies": {
     "@date-io/date-fns": "1.3.9",
     "@emotion/react": "^11.11.4",
