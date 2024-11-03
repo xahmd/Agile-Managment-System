@@ -11,3 +11,10 @@ Email: vv@vv.com, Password: undefined, Role: Student
 Email: vv@vv.com, Password: aa@123@123, Role: Student
 Email: ff@ff.com, Password: aa@123123, Role: Student
 Email: ff@ff.com, Password: undefined, Role: Student
+Email: mo@mo.com, Password: OsaJrPPy, Role: Supervisor
+Email: 11@11.com, Password: aa@123@123, Role: Student
+Email: 11@11.com, Password: undefined, Role: Student
+Email: co2@co2.com, Password: aa@123@123, Role: UGPC_Member
+Email: 11@11.com, Password: aa@123123, Role: Student
+Email: 11@11.com, Password: undefined, Role: Student
+Email: 11@11.com, Password: aa@123@123, Role: Student
