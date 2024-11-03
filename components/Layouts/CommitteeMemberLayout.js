@@ -65,7 +65,7 @@ const CommitteeMemberLayout = ({children, committeeType, position}) => {
         <AppBar position="static" color="default">
           <Toolbar>
             <div style={{marginRight: 10}}>
-              <Tooltip title='UGPC-Software' placement='right'>
+              <Tooltip title='FDMS' placement='right'>
                 <Avatar alt="fk-LOGO" src="/static/avatar/fk.png" style={{cursor: 'pointer'}}/>
               </Tooltip>
             </div>

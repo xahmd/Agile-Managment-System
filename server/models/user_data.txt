@@ -18,3 +18,9 @@ Email: co2@co2.com, Password: aa@123@123, Role: UGPC_Member
 Email: 11@11.com, Password: aa@123123, Role: Student
 Email: 11@11.com, Password: undefined, Role: Student
 Email: 11@11.com, Password: aa@123@123, Role: Student
+Email: hasan@gmail.com, Password: aa@aa@123, Role: Student
+Email: hasan@gmail.com, Password: undefined, Role: Student
+Email: st@st.com, Password: aa@aa@123, Role: Student
+Email: st@st.com, Password: undefined, Role: Student
+Email: g@g.com, Password: aa@aa@123, Role: Student
+Email: g@g.com, Password: undefined, Role: Student

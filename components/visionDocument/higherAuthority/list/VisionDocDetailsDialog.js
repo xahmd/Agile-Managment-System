@@ -539,6 +539,11 @@ const VisionDocDetailsDialog = ({currentDocument, open, handleClose, setCurrentD
                         }
                         {
                           userContext.user.user.ugpc_details.position === 'Chairman_Committee' &&
+                          currentDocument.documentation.visionDocument.status === 'Waiting for Initial Approval' &&
+                          <MenuItem value='Approved'>Approve</MenuItem>
+                        }
+                        {
+                          userContext.user.user.ugpc_details.position === 'Chairman_Committee' &&
                           currentDocument.documentation.visionDocument.status === 'Meeting Scheduled' &&
                           <MenuItem value='Approved With Changes'>Approve With Changes</MenuItem>
                         }

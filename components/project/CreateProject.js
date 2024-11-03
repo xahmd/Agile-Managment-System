@@ -151,7 +151,7 @@ const CreateProject = () => {
   return (
     <div className={classes.root}>
       {loading && <LinearProgress color='secondary'/>}
-      <SuccessSnackBar open={success} message='Project Created Successfully, You will be notified When you have been assigned to a supervisor' handleClose={handleSuccess}/>
+      <SuccessSnackBar open={success} message='Project Created Successfully, Please submit a proposal & project details to be reviewn' handleClose={handleSuccess}/>
       <StepperComponent
         activeStep={activeStep}
         getStepContent={getStepContent}

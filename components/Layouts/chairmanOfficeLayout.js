@@ -90,7 +90,7 @@ const ChairmanOfficeLayout = ({children}) => {
                 </IconButton>
               </Hidden>
               <div style={{flexGrow: 1}}>
-                <Tooltip title='UGPC-Software' placement='right'>
+                <Tooltip title='FDMS' placement='right'>
                   <Avatar alt="fk-LOGO" src="/static/avatar/fk.png"/>
                 </Tooltip>
               </div>

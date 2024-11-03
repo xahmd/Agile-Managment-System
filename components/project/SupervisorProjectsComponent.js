@@ -22,6 +22,7 @@ import {useTableStyles} from "../../src/material-styles/tableStyles";
 import {useListItemStyles} from "../../src/material-styles/listItemStyles";
 import router from "next/dist/client/router";
 
+
 const SupervisorProjectsComponent = () => {
   const classes = useListContainerStyles();
   const userContext = useContext(UserContext);
@@ -69,7 +70,7 @@ const SupervisorProjectsComponent = () => {
                           </TableCell>
                         </TableRow> :
                         userContext.user.user.supervisor_details.projects && userContext.user.user.supervisor_details.projects.map(({title, project, _id}, index) => (
-                          <Tooltip key={index} title='Click to view Details' placement="top" TransitionComponent={Zoom}>
+                          <Tooltip key={index} title='Click to view Details' placement="top"  TransitionComponent={Zoom}>
                             <TableRow className={tableClasses.tableRow} onClick={() => handleClickProject(project._id)}>
                               <TableCell align="left">
                                 {title}

@@ -63,7 +63,7 @@ const EvaluationChairmanLayout = ({children}) => {
                 <HomeOutlined style={{width: 32, height: 32}}/>
               </IconButton>
             </Link>
-            <Tooltip title='UGPC-Software' placement='right'>
+            <Tooltip title='FDMS' placement='right'>
               <div style={{marginRight: 10}}>
                 <Link href='/committee/evaluation/chairman'>
                   <Avatar alt="fk-LOGO" src="/static/avatar/fk.png" style={{cursor: 'pointer'}}/>
