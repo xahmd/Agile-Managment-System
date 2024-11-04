@@ -24,3 +24,5 @@ Email: st@st.com, Password: aa@aa@123, Role: Student
 Email: st@st.com, Password: undefined, Role: Student
 Email: g@g.com, Password: aa@aa@123, Role: Student
 Email: g@g.com, Password: undefined, Role: Student
+Email: ib@ib.com, Password: aa@aa@123, Role: Student
+Email: ib@ib.com, Password: undefined, Role: Student

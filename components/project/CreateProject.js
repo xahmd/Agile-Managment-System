@@ -107,10 +107,10 @@ const CreateProject = () => {
             <Grid item xs={12} sm={10} md={8}>
               <TextField
                 variant='outlined'
-                label='Project Title'
+                label='Student Group Name'
                 fullWidth
                 name='groupName'
-                placeholder='Your Title here'
+                placeholder='Your Full Name Here' 
                 required
                 error={errors.groupName.show}
                 helperText={errors.groupName.show ? errors.groupName.message : `${data.groupName.length}/50`}
