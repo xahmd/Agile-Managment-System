@@ -34,7 +34,7 @@ const Meetings = () => {
                           <Typography variant='h5'>Meetings</Typography>
                         </div>
                       </div>
-                      <Typography variant='h6' color='textPrimary' className={classes.marginTop}>Defence</Typography>
+                      <Typography variant='h6' color='textPrimary' className={classes.marginTop}>Meetings</Typography>
                       <StudentDefenceMeetingComponent docs={project.project.documentation.visionDocument}/>
                       <Typography variant='h6' color='textPrimary' className={classes.marginTop}>Evaluation</Typography>
                       <StudentEvaluationMeetingsComponent internal={project.project.details.internal}
