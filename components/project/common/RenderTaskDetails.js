@@ -424,7 +424,7 @@ const RenderTaskDetails = ({details, setDetails, taskIn, sprintId}) => {
             maxFileSize={6000000}
             showPreviews={true}
             showPreviewsInDropzone={false}
-            dropzoneText={`Drag and drop Images here or click (Max ${20 - details.attachments.length})`}
+            dropzoneText={`Drag and drop files here or click (Max ${20 - details.attachments.length})`}
           />
           {fileError && <Typography variant='caption' color='error'>Please Upload Images</Typography>}
         </DialogContent>

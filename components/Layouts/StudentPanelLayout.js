@@ -107,7 +107,7 @@ const StudentPanelLayout = ({children}) => {
           <ListItemIcon>
             <ViewColumn className={classes.iconColor}/>
           </ListItemIcon>
-          <ListItemText primary={"Scrum Board"}/>
+          <ListItemText primary={"Tasks Board"}/>
         </DrawerLink>
         <DrawerLink href={'/student/project/progress'}>
           <ListItemIcon>

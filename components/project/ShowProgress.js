@@ -170,8 +170,8 @@ const ShowProgress = () => {
                           </div>
                         </div>
                         <div className={progressClasses.containerContent}>
-                          <Typography variant='body2' color='textSecondary'>Sprint Velocity</Typography>
-                          <Tooltip title='Average Story Points Completed / Sprint' placement='top'>
+                          <Typography variant='body2' color='textSecondary'>Average Points Progress</Typography>
+                          <Tooltip title='Average Points Completed / Sprint' placement='top'>
                             <Typography variant='h5'
                                         color='textSecondary'>{getSprintVelocity(project.project.details.sprint)}</Typography>
                           </Tooltip>
@@ -183,7 +183,7 @@ const ShowProgress = () => {
                           project.project.details.sprint.length === 0 ?
                             <div className={emptyStyles.emptyListContainer}>
                               <div className={emptyStyles.emptyList}>
-                                No Sprint created yet
+                                No data found
                               </div>
                             </div> :
                             <Bar

@@ -257,7 +257,7 @@ const RenderScrumBoard = ({sprint, sprintNames}) => {
     !loading &&
     <div>
       <SuccessSnackBar message='Sprint Completed' open={openSuccessSnackBar} handleClose={handleCloseSuccess}/>
-      <InfoSnackBar message='Only supervisor can move to Done' open={openInfoSnackBar} setOpen={setOpenInfoSnackBar}/>
+      <InfoSnackBar message='Err! Supervisor can mark task as Done!' open={openInfoSnackBar} setOpen={setOpenInfoSnackBar}/>
       <div className={classes.actions}>
         <FormControl variant="outlined" margin='dense' style={{minWidth: 160}}>
           <InputLabel htmlFor="sprint">
@@ -271,7 +271,7 @@ const RenderScrumBoard = ({sprint, sprintNames}) => {
           >
             {
               sprintNames.length === 0 &&
-              <MenuItem value='No Sprint Created'>No Sprint Created</MenuItem>
+              <MenuItem value='No Sprint Created'>No tasks Created</MenuItem>
             }
 
             {

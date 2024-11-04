@@ -90,7 +90,7 @@ const DefenceMeetingComponent = () => {
               <Assignment className={containerClasses.headerIcon}/>
             </div>
             <div className={containerClasses.topTitle}>
-              <Typography variant='h5'>Meetings</Typography>
+              <Typography variant='h5'>Projects Lists</Typography>
             </div>
 
           </div>
