@@ -644,52 +644,11 @@ const VisionDocDetailsDialog = ({currentDocument, open, handleClose, setCurrentD
 
         </DialogContent>
         <DialogActions>
+  <Button onClick={handleClose} color="primary" variant="contained">
+    Close
+  </Button>
+</DialogActions>
 
-          {
-            currentDocument.details && currentDocument.details.acceptanceLetter && currentDocument.details.acceptanceLetter.name && (
-              <div>
-                <Hidden smUp>
-                  <PDFDownloadLink
-                    document={
-                      <ApprovalLetter
-                        title={currentDocument.documentation.visionDocument.title}
-                        students={currentDocument.students}
-                        supervisor={currentDocument.details.supervisor}
-                        date={currentDocument.details.acceptanceLetter.issueDate}
-                        chairmanName={chairmanName}
-                        committeeHeadName={committeeHeadName}
-                      />
-                    }
-                    fileName={currentDocument.details.acceptanceLetter.name}
-                    style={{textDecoration: 'none'}}
-                  >
-                    {
-                      ({loading}) =>
-                        (loading ? <CircularProgress/> :
-                          <Button size='small' startIcon={<GetAppOutlined/>}>Acceptance Letter</Button>)
-                    }
-                  </PDFDownloadLink>
-                </Hidden>
-                <Hidden xsDown>
-                  <Button onClick={openLetterViewer}>Acceptance Letter</Button>
-                </Hidden>
-              </div>
-
-            )
-          }
-
-
-          {
-            changeStatus !== 'No Change' &&
-            <Button onClick={handleClickSave} variant='contained'
-                    className={classes.buttonSuccess}>
-              Save
-            </Button>
-          }
-          <Button onClick={handleClose} color="primary" variant='contained'>
-            Close
-          </Button>
-        </DialogActions>
       </Dialog>
       <Dialog
         fullWidth
