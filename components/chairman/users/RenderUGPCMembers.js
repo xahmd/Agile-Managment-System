@@ -64,10 +64,10 @@ const RenderUgpcMembers = ({ugpcMembers}) => {
               <TableCell align="left"></TableCell>
               <TableCell align="left">Name</TableCell>
               <TableCell align="left">Email</TableCell>
-              <TableCell align="left">Committee</TableCell>
-              <TableCell align="left">For</TableCell>
+              {/* <TableCell align="left">Committee</TableCell> */}
+              <TableCell align="left">Major</TableCell>
               <TableCell align="left">Position</TableCell>
-              <TableCell align="left">Joined At4</TableCell>
+              <TableCell align="left">Joined At</TableCell>
               <TableCell align="left">Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -99,7 +99,7 @@ const RenderUgpcMembers = ({ugpcMembers}) => {
                     </TableCell>
                     <TableCell align="left">{ugpcMember.name}</TableCell>
                     <TableCell>{ugpcMember.email}</TableCell>
-                    <TableCell>{ugpcMember.ugpc_details.committeeType}</TableCell>
+                    {/* <TableCell>{ugpcMember.ugpc_details.committeeType}</TableCell> */}
                     <TableCell>{ugpcMember.ugpc_details.committees.map((committee, index) => `${committee}${index > 1 ? ',' : ''}`)}</TableCell>
                     <TableCell>{ugpcMember.ugpc_details.position || 'None'}</TableCell>
                     <TableCell align="left">{moment(ugpcMember.createdAt).format('MMM DD, YYYY')}</TableCell>

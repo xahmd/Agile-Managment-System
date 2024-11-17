@@ -481,7 +481,7 @@ const Settings = () => {
                 id="letterbh-header"
               >
                 <Typography className={settingsClasses.heading}>Letter</Typography>
-                <Typography className={settingsClasses.secondaryHeading}>Approval Letter Settings</Typography>
+                <Typography className={settingsClasses.secondaryHeading}>PSM Letter</Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <div className={settingsClasses.root}>

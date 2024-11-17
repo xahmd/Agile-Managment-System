@@ -65,7 +65,7 @@ const UsersMainComponent = () => {
         >
           <Tab label="Students" {...a11yProps(0)} />
           <Tab label="Supervisors" {...a11yProps(1)} />
-          <Tab label="UGPC_Members" {...a11yProps(2)} />
+          <Tab label="Chairmans" {...a11yProps(2)} />
           <Tab label="Other Users" {...a11yProps(3)} />
         </Tabs>
 
