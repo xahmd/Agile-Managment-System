@@ -28,3 +28,5 @@ Email: ib@ib.com, Password: aa@aa@123, Role: Student
 Email: ib@ib.com, Password: undefined, Role: Student
 Email: e@e.com, Password: aa@aa@123, Role: Student
 Email: e@e.com, Password: undefined, Role: Student
+Email: ev@ev.com, Password: lb8tok9h, Role: Supervisor
+Email: ev2@ev2.com, Password: q6C9xpjq, Role: UGPC_Member

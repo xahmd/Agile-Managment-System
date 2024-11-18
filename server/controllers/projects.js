@@ -348,14 +348,7 @@ exports.changeFDStatus = async (req, res) => {
                 <p>Your Project's Evaluation status has changed to <b>${status}</b></p>
                 ${comment !== undefined ? `<p><b>Reason:</b> ${comment}</p>` : ''}
                 <br/>
-                <p>Learn About Evaluation Statuses:</p>
-                <p><b>NotApproved:</b> Your Documentation is rejected by supervisor or it needs changes.</p>
-                <p><b>ReSubmit:</b> Your Documentation is rejected by examiner or it needs changes.</p>
-                <p><b>Approved:</b> Your Documentation is accepted by supervisor.</p>
-                <p><b>Available for Internal:</b> Your Project is sent to evaluation Committee for internal scheduling.</p>
-                <p><b>Internal Scheduled:</b> Your Project's internal is scheduled.</p>
-                <p><b>Available for external:</b> Your Project is send to evaluation committee for external scheduling.</p>
-                <p><b>Completed:</b> Your Evaluation Process is Completed.</p>
+
                 <p>Regards!</p>
             `
     };
@@ -651,10 +644,10 @@ exports.scheduleExternalDate = async (req, res) => {
       from: "noreply@node-react.com",
       to: studentEmails,
       subject: "External Scheduled",
-      text: `Dear Student,\n Your External is scheduled by examiner on ${selectedDate} at ${venue}`,
+      text: `Dear Student,\n Your Second Evaluation is scheduled by examiner on ${selectedDate} at ${venue}`,
       html: `
                 <p>Dear Student,</p>
-                <p>Your External Viva-Voce is scheduled by your Examiner, details are given below.</p>
+                <p>Your Second Evaluation is scheduled by your Examiner, details are given below.</p>
                 <br/>
                 <p><b>Venue: </b>${venue}</p>
                 <p><b>Date: </b> ${moment(selectedDate).format('LLL')}</p>
