@@ -299,11 +299,43 @@ const StudentVisionDocDetailsDialog = ({currentDocument, open, handleClose, setC
             </Grid>
           </DialogContent>
           <DialogActions>
-  <Button onClick={handleClose} color="primary" variant="contained">
-    Close
-  </Button>
-</DialogActions>
 
+            {
+              project.details && project.details.acceptanceLetter && project.details.acceptanceLetter.name && (
+                <div>
+                  <Hidden smUp>
+                    <PDFDownloadLink
+                      document={
+                        <ApprovalLetter
+                          title={currentDocument.title}
+                          students={project.students}
+                          supervisor={project.details.supervisor}
+                          date={project.details.acceptanceLetter.issueDate}
+                          chairmanName={chairmanName}
+                          committeeHeadName={committeeHeadName}
+                        />
+                      }
+                      fileName={project.details.acceptanceLetter.name}
+                      style={{textDecoration: 'none'}}
+                    >
+                      {
+                        ({loading}) =>
+                          (loading ? <CircularProgress/> :
+                            <Button size='small' startIcon={<GetAppOutlined/>}>Acceptance Letter</Button>)
+                      }
+                    </PDFDownloadLink>
+                  </Hidden>
+                  <Hidden xsDown>
+                    <Button onClick={openLetterViewer}>Acceptance Letter</Button>
+                  </Hidden>
+                </div>
+
+              )
+            }
+            <Button onClick={handleClose} color="primary" variant='contained'>
+              Close
+            </Button>
+          </DialogActions>
         </>
         }
       </Dialog>
