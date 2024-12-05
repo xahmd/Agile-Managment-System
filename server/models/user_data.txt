@@ -30,3 +30,15 @@ Email: e@e.com, Password: aa@aa@123, Role: Student
 Email: e@e.com, Password: undefined, Role: Student
 Email: ev@ev.com, Password: lb8tok9h, Role: Supervisor
 Email: ev2@ev2.com, Password: q6C9xpjq, Role: UGPC_Member
+Email: moin@moin.com, Password: aa@aa@123, Role: Student
+Email: moin@moin.com, Password: undefined, Role: Student
+Email: nur@nur.com, Password: QjvnoO7K, Role: Supervisor
+Email: jamos@jamos.com, Password: aa@aa@123, Role: Student
+Email: jamos@jamos.com, Password: undefined, Role: Student
+Email: asdasd@asd.com, Password: aj3H3aOq, Role: Supervisor
+Email: dc@dc.com, Password: aa@aa@123, Role: Student
+Email: dc@dc.com, Password: undefined, Role: Student
+Email: ac@ac.com, Password: aa@aa@123, Role: Student
+Email: ac@ac.com, Password: undefined, Role: Student
+Email: 22@22.com, Password: aa@aa@123, Role: Student
+Email: 22@22.com, Password: undefined, Role: Student
