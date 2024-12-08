@@ -259,6 +259,8 @@ const RenderInternalsExternals = ({projects, marks, type, fetchData}) => {
   const handleComment = event => {
     setComment({error: false, text: event.target.value})
   };
+ 
+  
   const handleResubmit = () => {
     if (comment.text === '') {
       setComment({...comment, error: true});
@@ -514,36 +516,57 @@ const RenderInternalsExternals = ({projects, marks, type, fetchData}) => {
           </Table>
         </div>
       }
-      <Dialog
-        open={dialog.evaluation}
-        onClose={() => setDialog({...dialog, evaluation: false})}
-        fullWidth
-        maxWidth='xs'
-        classes={{paper: dialogClasses.root}}
-      >
-        {loading.evaluation && <LinearProgress/>}
-        <DialogTitleComponent title='Evaluate' handleClose={() => setDialog({...dialog, evaluation: false})}/>
-        <DialogContent>
-          <Typography>Please Provide marks obtained</Typography>
-          <TextField
-            label='Marks Obtained'
-            margin='dense'
-            variant='outlined'
-            name='marks'
-            type='number'
-            required
-            value={data.marks}
-            onChange={handleChangeMarksObtained}
-            error={error.show}
-            helperText={error.message}
-            placeholder={`0-${type === 'internal' ? marks.internal : marks.external}`}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setDialog({...dialog, evaluation: false})}>Cancel</Button>
-          <Button variant='contained' color='secondary' onClick={handleConfirmEvaluation}>Confirm</Button>
-        </DialogActions>
-      </Dialog>
+<Dialog
+  open={dialog.evaluation}
+  onClose={() => setDialog({...dialog, evaluation: false})}
+  fullWidth
+  maxWidth="sm"
+  classes={{ paper: dialogClasses.root }}
+>
+  {loading.evaluation && <LinearProgress />}
+  <DialogTitleComponent title="Evaluate" handleClose={() => setDialog({...dialog, evaluation: false})} />
+  <DialogContent>
+    <Typography variant="h6" gutterBottom>
+      Marking Criteria
+    </Typography>
+    <ul>
+      <li>Excellent (90-100): Outstanding performance</li>
+      <li>Very Good (80-89): Above average understanding</li>
+      <li>Good (70-79): Satisfactory achievement</li>
+      <li>Pass (50-69): Minimal requirements met</li>
+      <li>Fail (0-49): Does not meet requirements</li>
+    </ul>
+    <Typography variant="body1" gutterBottom>
+      Please provide marks obtained based on the criteria above.
+    </Typography>
+    <TextField
+      label="Marks Obtained"
+      margin="dense"
+      variant="outlined"
+      name="marks"
+      type="number"
+      required
+      value={data.marks}
+      onChange={handleChangeMarksObtained}
+      error={error.show}
+      helperText={error.message || `Enter marks between 0 and ${type === 'internal' ? marks.internal : marks.external}`}
+      placeholder={`0-${type === 'internal' ? marks.internal : marks.external}`}
+    />
+
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={() => setDialog({...dialog, evaluation: false})}>Cancel</Button>
+    <Button
+      variant="contained"
+      color="secondary"
+      onClick={handleConfirmEvaluation}
+      disabled={data.marks < 0 || data.marks > (type === 'internal' ? marks.internal : marks.external)}
+    >
+      Confirm
+    </Button>
+  </DialogActions>
+</Dialog>
+
 
       {/*External Scheduling Dialog*/}
       <Dialog fullWidth maxWidth='sm' open={dialog.schedule} onClose={() => setDialog({...dialog, schedule: false})}

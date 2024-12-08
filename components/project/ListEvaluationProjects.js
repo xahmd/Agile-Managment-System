@@ -40,6 +40,8 @@ import {useDocDetailsDialogStyles} from "../../src/material-styles/docDetailsDia
 import {useListContainerStyles} from "../../src/material-styles/listContainerStyles";
 import DialogTitleComponent from "../DialogTitleComponent";
 import SuccessSnackBar from "../snakbars/SuccessSnackBar";
+import StudentGradeListPDF from './StudentGradeListPDF';
+
 
 const useStyles = makeStyles(theme => ({
   tableRow: {
@@ -61,6 +63,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 const ListEvaluationProjects = ({filter, fetchData}) => {
+  const [gradedStudents, setGradedStudents] = useState([]); // Initialize as an empty array
   const projectsClasses = useStyles();
   const detailsClasses = useDocDetailsDialogStyles();
   const classes = useListContainerStyles();
@@ -123,6 +126,21 @@ const ListEvaluationProjects = ({filter, fetchData}) => {
           })
     }
   };
+  const generateGradedList = () => {
+    const sortedStudents = filter
+      .filter(project => project.documentation.finalDocumentation.status === 'Completed')
+      .map(project => ({
+        projectTitle: project.documentation.visionDocument.title || 'N/A',
+        supervisor: project.details.supervisor.name || 'N/A',
+        externalEvaluator: project.details.external?.examiner?.name || 'N/A', // Get external evaluator name
+        internalEvaluator: project.details.internal?.examiner?.name || 'N/A', // Get internal evaluator name
+        grade: getGrade(project.details.marks) || 'N/A', // Use getGrade for grade
+      }))
+      .sort((a, b) => a.grade.localeCompare(b.grade)); // Sort grades alphabetically
+  
+    setGradedStudents(sortedStudents);
+  };
+  
   const handleListItemClick = index => {
     setError(false);
     setSelectedIndex(index);
@@ -342,8 +360,19 @@ const ListEvaluationProjects = ({filter, fetchData}) => {
                      handleSnackBar={() => setResError({open: false, message: ''})}/>
       {
         <div className={projectsClasses.tableWrapper}>
+                    <div style={{ marginBottom: 20 }}>
+  <Button variant="outlined" color="primary" onClick={generateGradedList}>
+    Generate Grading Report List
+  </Button>
+  {gradedStudents.length > 0 && (
+    <div style={{ marginTop: 10 }}>
+      <StudentGradeListPDF students={gradedStudents} />
+    </div>
+  )}
+</div>
+       
           <Table size='small'>
-            <TableHead>
+     <TableHead>
               <TableRow>
                 <TableCell align="left">Title</TableCell>
                 <TableCell align="left">Department</TableCell>
