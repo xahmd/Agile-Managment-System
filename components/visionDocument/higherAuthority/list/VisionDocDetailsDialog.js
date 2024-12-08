@@ -666,12 +666,12 @@ const VisionDocDetailsDialog = ({currentDocument, open, handleClose, setCurrentD
                     {
                       ({loading}) =>
                         (loading ? <CircularProgress/> :
-                          <Button size='small' startIcon={<GetAppOutlined/>}>Acceptance Letter</Button>)
+                          <Button size='small' startIcon={<GetAppOutlined/>}>-</Button>)
                     }
                   </PDFDownloadLink>
                 </Hidden>
                 <Hidden xsDown>
-                  <Button onClick={openLetterViewer}>Acceptance Letter</Button>
+                  <Button onClick={openLetterViewer}>-</Button>
                 </Hidden>
               </div>
 
