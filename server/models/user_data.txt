@@ -44,3 +44,5 @@ Email: 22@22.com, Password: aa@aa@123, Role: Student
 Email: 22@22.com, Password: undefined, Role: Student
 Email: 33@33.com, Password: aa@aa@123, Role: Student
 Email: 33@33.com, Password: undefined, Role: Student
+Email: uu@uu.com, Password: aa@aa@123, Role: Student
+Email: uu@uu.com, Password: undefined, Role: Student
