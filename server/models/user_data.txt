@@ -48,3 +48,5 @@ Email: uu@uu.com, Password: aa@aa@123, Role: Student
 Email: uu@uu.com, Password: undefined, Role: Student
 Email: pond@pond.com, Password: aa@aa@123, Role: Student
 Email: pond@pond.com, Password: undefined, Role: Student
+Email: kk@kk.com, Password: aa@aa@123, Role: Student
+Email: kk@kk.com, Password: undefined, Role: Student
