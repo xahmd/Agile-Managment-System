@@ -12,7 +12,7 @@ export const RenderDocBasicDetails = ({currentDocument, project}) => {
     <div>
       <div className={classes.detailsContent}>
         <Typography variant='subtitle2'>
-          Abstract
+        preferred supervisor
         </Typography>
         <Typography variant='body2' className={classes.wrapText}>
           {currentDocument.abstract}

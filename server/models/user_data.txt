@@ -50,3 +50,7 @@ Email: pond@pond.com, Password: aa@aa@123, Role: Student
 Email: pond@pond.com, Password: undefined, Role: Student
 Email: kk@kk.com, Password: aa@aa@123, Role: Student
 Email: kk@kk.com, Password: undefined, Role: Student
+Email: iu@iu.com, Password: aa@aa@123, Role: Student
+Email: iu@iu.com, Password: undefined, Role: Student
+Email: gj@gj.com, Password: aa@aa@123, Role: Student
+Email: gj@gj.com, Password: undefined, Role: Student

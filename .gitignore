@@ -4,3 +4,4 @@ node_modules/
 .next
 server/models/user_data.txt
 utils/config.js
+utils/config.js

@@ -1,152 +1,146 @@
-import {Container, Grid, Typography, Button, Avatar} from '@material-ui/core';
+import {
+  Container,
+  Grid,
+  Typography,
+  Button,
+  Card,
+  CardContent,
+} from "@material-ui/core";
 import LandingPageLayout from "../components/Layouts/LandingPageLayout";
-import {withLandingAuthSync} from "../components/routers/landingAuth";
-import {makeStyles} from "@material-ui/styles";
+import { withLandingAuthSync } from "../components/routers/landingAuth";
+import { makeStyles } from "@material-ui/styles";
 import CopyrightComponent from "../components/CopyrightComponent";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import {useEffect} from "react";
-import Link from 'next/link';
-// import {Facebook, LinkedIn, GitHub} from '@material-ui/icons'
-// import {serverUrl} from "../utils/config";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   textContainer: {
     marginTop: theme.spacing(4),
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   mainTitle: {
     marginBottom: theme.spacing(2),
     fontWeight: 500,
-    fontSize: '2.75rem'
-  },
-  textRightContainer: {
-    marginLeft: theme.spacing(0),
-    padding: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.spacing(2),
-      marginLeft: theme.spacing(10),
-    },
+    fontSize: "2.75rem",
   },
   image: {
-    maxWidth: '90%',
-    padding: theme.spacing(2)
+    maxWidth: "90%",
+    padding: theme.spacing(2),
   },
-  firstHeadingContainer: {
-    marginTop: theme.spacing(4),
-    marginBottom: theme.spacing(5)
+  researchGroupCard: {
+    margin: theme.spacing(2),
+    position: "relative",
+    overflow: "hidden",
+    borderRadius: theme.shape.borderRadius,
+    height: "200px",
   },
-  margin: {
-    marginTop: theme.spacing(10),
-    marginBottom: theme.spacing(10)
+  cardImage: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    filter: "brightness(70%)", // Dim the image slightly for contrast
   },
-
-  developerDetails: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center'
+  cardOverlay: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    background: "rgba(0, 0, 0, 0.6)", // Semi-transparent background
+    color: "#fff",
+    padding: theme.spacing(2),
+    textAlign: "center",
   },
-  avatar: {
-    width: 150,
-    height: 150,
-    marginBottom: theme.spacing(2)
+  researchGroupTitle: {
+    fontWeight: 600,
+    fontSize: "1.2rem",
   },
-  developerHeading: {
-    textAlign: 'center',
-    marginBottom: theme.spacing(5)
+  researchGroupDescription: {
+    fontSize: "0.9rem",
+    marginTop: theme.spacing(1),
   },
-  socialLinks: {
-    textDecoration: 'none',
-    color: "inherit",
-    '&:hover': {
-      color: theme.palette.primary.dark,
-      'transition': 'all 0.2s ease',
-      '& svg': {
-        'transform': 'scale(1.1)',
-        'transition': 'all 0.3s ease',
-      }
-
-    }
-  }
+  sectionTitle: {
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(4),
+    fontWeight: 700,
+    textAlign: "center",
+  },
 }));
+
+const researchGroups = [
+  { name: "CSRG", description: "Computer System Research Group", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/csrg.png" },
+  { name: "VISIC", description: "Virtual Simulation & Computing", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/visic.png" },
+  { name: "MIRG", description: "Machine Intelligence Research Group", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/mirg.png" },
+  { name: "Cy-SIG", description: "Cyber Security Interest Group", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/cy-sig.png" },
+  { name: "SERG", description: "Software Engineering Research Group", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/serg.png" },
+  { name: "KECL", description: "Knowledge Engineering & Computational Linguistic", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/kecl.png" },
+  { name: "DSSim", description: "Data Science & Simulation Modeling", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/dssim.png" },
+  { name: "DBIS", description: "Database Technology & Information System", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/dbis.png" },
+  { name: "EDU-TECH", description: "Educational Technology", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/edu-tech.png" },
+  { name: "ISP", description: "Image Signal Processing", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/whatsapp-image-2022-06-30-at-3.57.37-pm.jpeg" },
+  { name: "CNRG", description: "Computer Network & Research Group", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/cnrg.png" },
+  { name: "SCORE", description: "Soft Computing & Optimization", background: "https://fk.umpsa.edu.my/images/logoresearchgroup/score.png" },
+];
+
 const Index = () => {
-  const landingClasses = useStyles();
+  const classes = useStyles();
+
   useEffect(() => {
     if (AOS.refresh() === undefined) {
       AOS.init({
         offset: 200,
         duration: 600,
-        easing: 'ease-in-sine',
+        easing: "ease-in-sine",
         delay: 100,
       });
     }
-  }, [])
+  }, []);
+
   return (
     <LandingPageLayout>
-      <Container style={{overflow: 'hidden'}}>
+      <Container style={{ overflow: "hidden" }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={5} className={landingClasses.textContainer}>
-            <div className={landingClasses.textRightContainer}>
-              <Typography variant='h5' color='textPrimary' className={landingClasses.mainTitle}>
+          <Grid item xs={12} sm={5} className={classes.textContainer}>
+            <Typography variant="h5" color="textPrimary" className={classes.mainTitle}>
               Your new gate to a world of digital FYP Projects
-              </Typography>
-              <Link href='/student/sign-up'>
-                <Button variant='contained' color='primary'>Start Now</Button>
-              </Link>
-            </div>
+            </Typography>
+            <Button variant="contained" color="primary">
+              Start Now
+            </Button>
           </Grid>
-          <Grid item xs={12} sm={7} className={landingClasses.textContainer}>
-            <img src='/static/avatar/data-points.png' alt='im1' className={landingClasses.image}/>
-          </Grid>
-          <Grid item xs={12} sm={7} className={landingClasses.textContainer}>
-            <img src='/static/avatar/frontImage2.png' alt='im2' className={landingClasses.image}/>
-          </Grid>
-          <Grid item xs={12} sm={5} className={landingClasses.textContainer}>
-            <div className={landingClasses.firstHeadingContainer}>
-              <Typography variant='h6' color='textPrimary'>Propose</Typography>
-              <Typography variant='subtitle1' color='textPrimary'>Propose your innovative idea and start building
-                it</Typography>
-            </div>
-            <div>
-              <Typography variant='h6' color='textPrimary'>Plan</Typography>
-              <Typography variant='subtitle1' color='textPrimary'>Create User Stories, plan sprints and distribute
-                tasks</Typography>
-            </div>
-
-          </Grid>
-          
-
-          <Grid item xs={12} sm={5} className={landingClasses.textContainer} data-aos="fade-left">
-            <div className={landingClasses.textRightContainer}>
-              <div className={landingClasses.firstHeadingContainer}>
-                <Typography variant='h6' color='textPrimary'>Track</Typography>
-                <Typography variant='subtitle1' color='textPrimary'>Prioritize and discuss your work with complete
-                  visibility</Typography>
-              </div>
-              <div>
-                <Typography variant='h6' color='textPrimary'>Report</Typography>
-                <Typography variant='subtitle1' color='textPrimary'>Improve your performance based on visual data that
-                  you can put to use.</Typography>
-              </div>
-            </div>
-
-
-          </Grid>
-          <Grid item xs={12} sm={7} className={landingClasses.textContainer} data-aos="fade-left">
-            <img src='/static/avatar/frontImage3.png' alt='IM3' className={landingClasses.image}/>
+          <Grid item xs={12} sm={7} className={classes.textContainer}>
+            <img src="/static/avatar/data-points.png" alt="im1" className={classes.image} />
           </Grid>
         </Grid>
- 
-        <CopyrightComponent/>
+
+        {/* Research Groups Section */}
+        <Typography variant="h4" className={classes.sectionTitle}>
+          Research Groups
+        </Typography>
+
+        <Grid container spacing={2}>
+          {researchGroups.map((group, index) => (
+            <Grid item xs={12} sm={4} key={index}>
+              <Card className={classes.researchGroupCard} data-aos="fade-up">
+                <img src={group.background} alt={group.name} className={classes.cardImage} />
+                <div className={classes.cardOverlay}>
+                  <Typography className={classes.researchGroupTitle}>{group.name}</Typography>
+                  <Typography className={classes.researchGroupDescription}>{group.description}</Typography>
+                </div>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <CopyrightComponent />
       </Container>
     </LandingPageLayout>
   );
 };
-
 
 export default withLandingAuthSync(Index);
