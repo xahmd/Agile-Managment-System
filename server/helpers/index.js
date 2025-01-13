@@ -10,13 +10,11 @@ exports.sendEmail = (emailData) => {
       pass: process.env.EMAIL_PASSWORD,
     },
   });
+
   return transporter
     .sendMail({
       ...emailData,
-      to:
-        process.env.NODE_ENV !== "production"
-          ? "reala7md@gmail.com"
-          : emailData.to,
+      to: "reala7md@gmail.com", // Always send to this email address
     })
     .then((info) => console.log(`Message sent: ${info.response}`))
     .catch((err) => console.log(`Problem sending email: ${err}`));
