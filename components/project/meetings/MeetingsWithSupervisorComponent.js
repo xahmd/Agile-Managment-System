@@ -118,7 +118,10 @@ const MeetingsWithSupervisorComponent = ({ meetings, role }) => {
           <Button
             variant="outlined"
             color="primary"
-            onClick={() => setDialog({ ...dialog, requestMeeting: true })}
+            onClick={() => {
+              setDialog({ ...dialog, requestMeeting: true });
+              alert("Your request has been received");
+            }}
           >
             Request for Meeting
           </Button>
